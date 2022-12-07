@@ -134,6 +134,6 @@ export const recursivelyMapStorageUrls = async (
         const value = fieldValue[key];
         fieldValue[key] = await recursivelyMapStorageUrls(fireWrapper, value);
       })
-    );
+    ).then(() => fieldValue);
   }
 };
