@@ -121,7 +121,7 @@ export const recursivelyMapStorageUrls = async (
       (fieldValue as any[]).map(async (value, index) => {
         fieldValue[index] = await recursivelyMapStorageUrls(fireWrapper, value);
       })
-    );
+    ).then(() => fieldValue);
   }
   const isDocumentReference = isInputADocReference(fieldValue);
   if (isDocumentReference) {
